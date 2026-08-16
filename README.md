@@ -136,3 +136,4 @@ A checagem “está disponível?” seguida de insert é uma operação composta
 dois requests podem observar o mesmo estado. Pensar como desenvolvedor experiente significa
 procurar invariantes que o banco também consiga defender, delimitar a transação e testar o caminho
 de conflito — não confiar apenas na ordem aparente do código Python.
+"# NohillBarberShop" 
