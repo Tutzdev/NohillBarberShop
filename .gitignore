@@ -1,0 +1,63 @@
+# Python — bytecode e caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ambientes virtuais
+.venv/
+venv/
+env/
+ENV/
+
+# Build e metadados de pacotes
+build/
+dist/
+.eggs/
+*.egg
+*.egg-info/
+pip-wheel-metadata/
+
+# Testes, cobertura, lint e type checking
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.pyright/
+.hypothesis/
+pytestdebug.log
+
+# Flask e bancos locais
+instance/
+*.db
+*.sqlite
+*.sqlite3
+
+# Variáveis de ambiente e secrets locais
+.env
+.env.*
+!.env.example
+.flaskenv
+*.pem
+*.key
+
+# Logs e arquivos temporários
+*.log
+logs/
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# IDEs e editores
+.idea/
+.vscode/
+*.code-workspace
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+Desktop.ini
