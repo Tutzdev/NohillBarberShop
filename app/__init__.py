@@ -27,6 +27,9 @@ def create_app(config_name: str | None = None, *, overrides: dict | None = None)
 
 def _initialize_extensions(app: Flask) -> None:
     db.init_app(app)
+    from app.availability.gateway import SqlAlchemyAvailabilityGateway
+
+    app.extensions["availability_gateway"] = SqlAlchemyAvailabilityGateway()
     migrate.init_app(app, db)
     jwt.init_app(app)
     limiter.init_app(app)

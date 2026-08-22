@@ -32,7 +32,9 @@ def token_is_revoked(_header: dict, payload: dict) -> bool:
     session_id = payload.get("sid")
     if not session_id:
         return True
+
     session = db.session.get(AuthSession, session_id)
+
     if session is None or session.revoked_at is not None:
         return True
     if ensure_utc(session.expires_at) <= utc_now():

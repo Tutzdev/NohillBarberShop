@@ -43,9 +43,8 @@ class Appointment(TimestampMixin, db.Model):
     customer_id: Mapped[int] = mapped_column(
         ForeignKey("customers.id", ondelete="CASCADE"), nullable=False
     )
-    # Foreign keys are added when Vitor's real barber/service tables and names are available.
-    barber_id: Mapped[int] = mapped_column(nullable=False, index=True)
-    service_id: Mapped[int] = mapped_column(nullable=False, index=True)
+    barber_id: Mapped[int] = mapped_column(ForeignKey("barbers.id"), nullable=False, index=True)
+    service_id: Mapped[int] = mapped_column(ForeignKey("services.id"), nullable=False, index=True)
     start_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
     end_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
     status: Mapped[AppointmentStatus] = mapped_column(
@@ -55,4 +54,6 @@ class Appointment(TimestampMixin, db.Model):
     version_id: Mapped[int] = mapped_column(nullable=False, default=1)
 
     customer = relationship("Customer", back_populates="appointments")
+    barber = relationship("Barber", back_populates="appointments")
+    service = relationship("Service", back_populates="appointments")
     __mapper_args__ = {"version_id_col": version_id}
